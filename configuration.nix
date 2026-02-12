@@ -132,7 +132,6 @@
         killall
         nvd
         openssl
-        ripgrep  # required by neovim user config
         tree
         unzip
         vim
@@ -140,36 +139,14 @@
         wl-clipboard
         zip
 
-        btop
-        carapace
         docker-buildx
         docker-compose
-        fastfetch
         git
-        neovim
-        nodejs  # required by neovim user config
-        nushell
-        python3Minimal  # required by neovim user config
-        rustup
-        uv
 
-        brave
-        discord-canary
         dunst
-        evince
-        feh
-        grim
-        hypridle
-        hyprpaper
         kitty
-        pcmanfm
         rofi
-        rofi-power-menu
-        slurp
-        spotify
         tuigreet
-        virt-manager
-        waybar
         wvkbd
     ];
 

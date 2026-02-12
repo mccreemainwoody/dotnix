@@ -1,5 +1,67 @@
 {
   "nodes": {
+    "dotfiles": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770934346,
+        "narHash": "sha256-15MG5zpMFUNedIovR11FqPf1ZRn0W+I264naohLvVe4=",
+        "owner": "mccreemainwoody",
+        "repo": "dotfiles",
+        "rev": "f262096d9a4a47ec7cb4d377fcc37a5001242849",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mccreemainwoody",
+        "repo": "dotfiles",
+        "type": "github"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "dotfiles",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770930784,
+        "narHash": "sha256-J5YzA89ctwpSpfk+SJWVRWLzhuziXRRcFmo+cs+1K5M=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "2cc195b4783991b30fb8499c0dd2f9a7bf44d347",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770930784,
+        "narHash": "sha256-J5YzA89ctwpSpfk+SJWVRWLzhuziXRRcFmo+cs+1K5M=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "2cc195b4783991b30fb8499c0dd2f9a7bf44d347",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1770562336,
@@ -17,6 +79,8 @@
     },
     "root": {
       "inputs": {
+        "dotfiles": "dotfiles",
+        "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs"
       }
     }
