@@ -21,6 +21,8 @@
         EDITOR = "nvim";
     };
     home.packages = with pkgs; [
+        hyprpaper
+        hypryaml
         rustup
 
         brave
@@ -61,7 +63,6 @@
     programs.waybar.enable = true;
 
     services.hypridle.enable = true;
-    services.hyprpaper.enable = true;
 
     home.stateVersion = "25.11";
 }
