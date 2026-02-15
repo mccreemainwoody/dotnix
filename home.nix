@@ -10,6 +10,10 @@
                 extras = ''
                     exec-once = fcitx5 -d
                 '';
+                extras-env = ''
+                    env = EDITOR,nvim
+                    env = VISUAL,nvim
+                '';
             };
         };
     };
