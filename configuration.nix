@@ -110,6 +110,10 @@
         xwayland.enable = true;
     };
     programs.hyprlock.enable = true;
+    programs.vim = {
+        enable = true;
+        defaultEditor = true;
+    };
     programs.steam.enable = true;
 
     virtualisation.docker = {
@@ -134,7 +138,6 @@
         openssl
         tree
         unzip
-        vim
         wget
         wl-clipboard
         zip
@@ -151,7 +154,6 @@
     ];
 
     environment.sessionVariables = {
-        EDITOR = "vim";
         NIXOS_OZONE_WL = "1";
     };
 
