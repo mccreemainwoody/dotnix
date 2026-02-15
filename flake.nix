@@ -28,7 +28,7 @@
                                 shrek = {
                                     imports = [
                                         ./home.nix
-                                        dotfiles.homeConfigurations.default
+                                        dotfiles.homeModules.dotfiles
                                     ];
                                 };
                             };

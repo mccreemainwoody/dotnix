@@ -3,6 +3,19 @@
 {
     home.username = "shrek";
     home.homeDirectory = "/home/shrek";
+    home.my-dotfiles = {
+        enable = true;
+        overrides = {
+            hyprland = {
+                extras = ''
+                    exec-once = fcitx5 -d
+                '';
+            };
+        };
+    };
+    home.sessionVariables = {
+        EDITOR = "nvim";
+    };
     home.packages = with pkgs; [
         rustup
 
@@ -45,13 +58,6 @@
 
     services.hypridle.enable = true;
     services.hyprpaper.enable = true;
-
-    xdg.configFile."hypr/hyprland/overrides.conf" = {
-        text = ''
-            exec-once = fcitx5 -d
-        '';
-        force = true;
-    };
 
     home.stateVersion = "25.11";
 }
