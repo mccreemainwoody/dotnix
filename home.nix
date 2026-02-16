@@ -28,6 +28,7 @@
         brave
         evince
         grim
+        mangohud
         pcmanfm
         slurp
         spotify

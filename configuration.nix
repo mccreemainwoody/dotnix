@@ -104,6 +104,7 @@
         videoDrivers = [ "nvidia" ];
     };
 
+    programs.gamemode.enable = true;
     programs.hyprland = {
         enable = true;
         withUWSM = true;
@@ -114,7 +115,10 @@
         enable = true;
         defaultEditor = true;
     };
-    programs.steam.enable = true;
+    programs.steam = {
+        enable = true;
+        gamescopeSession.enable = true;
+    };
 
     virtualisation.docker = {
         enable = true;
