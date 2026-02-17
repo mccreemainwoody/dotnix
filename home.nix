@@ -25,9 +25,11 @@
         hypryaml
         rustup
 
+        bitwarden-desktop
         brave
         evince
         grim
+        heroic
         mangohud
         pcmanfm
         slurp
