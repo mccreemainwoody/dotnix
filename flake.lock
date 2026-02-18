@@ -92,11 +92,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1758560226,
-        "narHash": "sha256-AKNk/juUyFVPSwsVLF2dUdHaDJtJpRiU7rUbqU5BSEM=",
+        "lastModified": 1771418056,
+        "narHash": "sha256-mKZb1vi8u8JAOxkJ4lb2SIhjilmNp8OfbWhouTZLrD4=",
         "owner": "mccreemainwoody",
         "repo": "hypryaml",
-        "rev": "f3c30117cc353e2d72a05b710d79d0bb4690f620",
+        "rev": "e190ff751736ed667bb189926e9e2fb36d59cbc9",
         "type": "github"
       },
       "original": {
