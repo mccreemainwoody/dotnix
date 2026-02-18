@@ -31,6 +31,7 @@
         grim
         heroic
         mangohud
+        pavucontrol
         pcmanfm
         slurp
         spotify
