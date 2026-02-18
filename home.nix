@@ -49,6 +49,7 @@
         defaultEditor = true;
         enable = true;
         extraPackages = with pkgs; [
+            gcc
             ripgrep
         ];
         extraPython3Packages = pyPkgs: with pyPkgs; [
