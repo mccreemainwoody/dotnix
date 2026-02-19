@@ -15,9 +15,21 @@
             url = "github:mccreemainwoody/hypryaml";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        mediatek-m6639-module = {
+            url = "github:clemenscodes/linux-mediatek-mt6639-bluetooth-kernel-module";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
-    outputs = { self, nixpkgs, home-manager, dotfiles, hypryaml, ... } @_: {
+    outputs = {
+        self,
+        nixpkgs,
+        home-manager,
+        dotfiles,
+        hypryaml,
+        mediatek-m6639-module,
+        ...
+    } @_: {
         nixosConfigurations = {
             nixos-btw = let
                     system = "x86_64-linux";
@@ -33,6 +45,7 @@
                                 )
                             ];
                         in [
+                            mediatek-m6639-module.nixosModules.default
                             {
                                 nixpkgs.overlays = overlays;
                             }
