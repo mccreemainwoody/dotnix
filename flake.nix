@@ -43,6 +43,7 @@
                         modules = [
                             mediatek-m6639-module.nixosModules.default
                             ./overlays
+                            ./modules
                             ./configuration.nix
                             home-manager.nixosModules.home-manager {
                                 home-manager = {

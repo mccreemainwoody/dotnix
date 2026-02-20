@@ -167,13 +167,8 @@
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     nixpkgs.config.allowUnfree = true;
-    nixpkgs.overlays = [
-        (final: prev: {
-            sudo = prev.sudo.override { withInsults = true; };
-        })
-    ];
 
-    security.sudo.extraConfig = "Defaults insults";
+    my.configurations.sudo.withRagebait = false;
 
     system.stateVersion = "25.11";
 }
