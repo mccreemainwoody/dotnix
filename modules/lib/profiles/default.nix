@@ -1,3 +1,6 @@
 {
-    imports = [ ./vim.nix ];
+    imports = [
+        ./nvidia.nix
+        ./vim.nix
+    ];
 }

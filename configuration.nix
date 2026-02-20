@@ -44,12 +44,6 @@
             };
         };
     };
-    hardware.graphics.enable = true;
-    hardware.nvidia = {
-        package = config.boot.kernelPackages.nvidiaPackages.stable; 
-        open = true;
-        nvidiaSettings = true;
-    };
 
     i18n.defaultLocale = "fr_FR.UTF-8";
     i18n.extraLocales = [
@@ -105,7 +99,9 @@
     };
     services.xserver = {
         enable = true;
-        videoDrivers = [ "nvidia" ];
+        videoDrivers = [
+            (lib.mkIf config.my.profiles.nvidia.enable "nvidia")
+        ];
     };
 
     programs.gamemode.enable = true;
@@ -167,6 +163,7 @@
     my.configurations.sudo.withRagebait = false;
 
     my.profiles.vim.enable = true;
+    my.profiles.nvidia.enable = true;
 
     system.stateVersion = "25.11";
 }
