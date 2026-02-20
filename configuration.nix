@@ -9,15 +9,6 @@
 
     boot.loader.limine.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.plymouth = {
-        enable = true;
-        theme = "connect";
-        themePackages = with pkgs; [
-            (adi1090x-plymouth-themes.override {
-                selected_themes = [ "connect" ];
-            })
-        ];
-    };
 
     networking.hostName = "nixos-btw";
     networking.networkmanager.enable = true;
@@ -140,6 +131,12 @@
     my.profiles.hardware = {
         bluetooth.enable = true;
         nvidia.enable = true;
+    };
+    my.profiles.login = {
+        plymouth = {
+            enable = true;
+            theme = "connect";
+        };
     };
     my.profiles.vim.enable = true;
     my.profiles.virtualisation = {
