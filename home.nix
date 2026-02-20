@@ -35,7 +35,6 @@
         pcmanfm
         slurp
         spotify
-        virt-manager
     ];
 
     programs.btop.enable = true;

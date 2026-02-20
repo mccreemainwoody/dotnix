@@ -120,14 +120,6 @@
         gamescopeSession.enable = true;
     };
 
-    virtualisation.libvirtd = {
-        enable = true;
-        qemu = {
-            package = pkgs.qemu_kvm;
-            runAsRoot = true;
-            swtpm.enable = true;
-        };
-    };
 
     environment.systemPackages = with pkgs; [
         killall
@@ -158,9 +150,15 @@
     my.configurations.sudo.withRagebait = false;
 
     my.profiles.vim.enable = true;
-    my.profiles.virtualisation.docker = {
-        enable = true;
-        rootless = true;
+    my.profiles.virtualisation = {
+        docker = {
+            enable = true;
+            rootless = true;
+        };
+        qemu = {
+            enable = true;
+            withVirtManager = true;
+        };
     };
     my.profiles.nvidia.enable = true;
 
