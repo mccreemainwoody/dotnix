@@ -29,26 +29,20 @@
         hypryaml,
         mediatek-m6639-module,
         ...
-    } @_: {
+    } @ inputs : {
         nixosConfigurations = {
             nixos-btw = let
                     system = "x86_64-linux";
                 in
                     nixpkgs.lib.nixosSystem {
                         system = system;
-                        modules = let
-                            overlays = [
-                                (final: prev:
-                                    {
-                                        hypryaml = hypryaml.packages.${system}.default;
-                                    }
-                                )
-                            ];
-                        in [
+                        specialArgs = {
+                            inherit inputs;
+                            inherit system;
+                        };
+                        modules = [
                             mediatek-m6639-module.nixosModules.default
-                            {
-                                nixpkgs.overlays = overlays;
-                            }
+                            ./overlays
                             ./configuration.nix
                             home-manager.nixosModules.home-manager {
                                 home-manager = {
