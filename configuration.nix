@@ -108,17 +108,12 @@
         ];
     };
 
-    programs.gamemode.enable = true;
     programs.hyprland = {
         enable = true;
         withUWSM = true;
         xwayland.enable = true;
     };
     programs.hyprlock.enable = true;
-    programs.steam = {
-        enable = true;
-        gamescopeSession.enable = true;
-    };
 
 
     environment.systemPackages = with pkgs; [
@@ -149,6 +144,14 @@
 
     my.configurations.sudo.withRagebait = false;
 
+    my.profiles.gaming = {
+        steam = {
+            enable = true;
+            withEnhancers = true;
+            withMonitoring = true;
+        };
+    };
+    my.profiles.nvidia.enable = true;
     my.profiles.vim.enable = true;
     my.profiles.virtualisation = {
         docker = {
@@ -160,7 +163,6 @@
             withVirtManager = true;
         };
     };
-    my.profiles.nvidia.enable = true;
 
     system.stateVersion = "25.11";
 }

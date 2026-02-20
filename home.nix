@@ -30,7 +30,6 @@
         evince
         grim
         heroic
-        mangohud
         pavucontrol
         pcmanfm
         slurp
