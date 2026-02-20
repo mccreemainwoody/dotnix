@@ -1,3 +1,6 @@
 {
-    imports = [ ./plymouth.nix ];
+    imports = [
+        ./greetd.nix
+        ./plymouth.nix
+    ];
 }

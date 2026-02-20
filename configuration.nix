@@ -45,29 +45,6 @@
         noto-fonts-cjk-sans
     ];
 
-    services.greetd = {
-        enable = true;
-        settings = {
-            default_session = {
-                command = ''
-                    ${pkgs.tuigreet}/bin/tuigreet \
-                        --asterisks \
-                        --kb-command 10 \
-                        --kb-sessions 11 \
-                        --kb-power 12 \
-                        --issue \
-                        --remember \
-                        --remember-session \
-                        --theme "border=magenta;container=darkgrey;text=magenta;prompt=magenta;time=green;action=lightblue;button=blue;input=yellow" \
-                        --time
-                '';
-            };
-            initial_session = {
-                command = "${pkgs.hyprland}/bin/start-hyprland";
-                user = "shrek";
-            };
-        };
-    };
     services.openssh.enable = true;
     services.pipewire = {
         enable = true;
@@ -107,7 +84,6 @@
         dunst
         kitty
         rofi
-        tuigreet
         wvkbd
     ];
 
@@ -133,6 +109,7 @@
         nvidia.enable = true;
     };
     my.profiles.login = {
+        greetd.enable = true;
         plymouth = {
             enable = true;
             theme = "connect";
