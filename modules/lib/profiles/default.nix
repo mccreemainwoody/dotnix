@@ -1,9 +1,8 @@
 {
     imports = [
         ./gaming
+        ./hardware
         ./virtualisation
-        ./bluetooth.nix
-        ./nvidia.nix
         ./vim.nix
     ];
 }

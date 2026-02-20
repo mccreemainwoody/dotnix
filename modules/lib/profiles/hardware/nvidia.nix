@@ -1,11 +1,11 @@
 { config, lib, ... } @_ :
 
 let
-    cfg = config.my.profiles.nvidia;
+    cfg = config.my.profiles.hardware.nvidia;
 in
 {
     options = {
-        my.profiles.nvidia = {
+        my.profiles.hardware.nvidia = {
             enable = lib.mkOption {
                 type = lib.types.bool;
                 default = false;
@@ -19,7 +19,8 @@ in
         hardware.graphics.enable = true;
 
         hardware.nvidia = {
-            package = config.boot.kernelPackages.nvidiaPackages.stable; 
+            package = lib.mkDefault
+                config.boot.kernelPackages.nvidiaPackages.stable;
             open = true;
             nvidiaSettings = true;
         };

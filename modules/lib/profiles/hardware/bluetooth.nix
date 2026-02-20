@@ -1,11 +1,11 @@
 { config, lib, ... } @_ :
 
 let
-    cfg = config.my.profiles.bluetooth;
+    cfg = config.my.profiles.hardware.bluetooth;
 in
 {
     options = {
-        my.profiles.bluetooth = {
+        my.profiles.hardware.bluetooth = {
             enable = lib.mkOption {
                 type = lib.types.bool;
                 default = false;

@@ -89,7 +89,7 @@
     services.xserver = {
         enable = true;
         videoDrivers = [
-            (lib.mkIf config.my.profiles.nvidia.enable "nvidia")
+            (lib.mkIf config.my.profiles.hardware.nvidia.enable "nvidia")
         ];
     };
 
@@ -129,7 +129,6 @@
 
     my.configurations.sudo.withRagebait = false;
 
-    my.profiles.bluetooth.enable = true;
     my.profiles.gaming = {
         heroic.enable = true;
         steam = {
@@ -138,7 +137,10 @@
             withMonitoring = true;
         };
     };
-    my.profiles.nvidia.enable = true;
+    my.profiles.hardware = {
+        bluetooth.enable = true;
+        nvidia.enable = true;
+    };
     my.profiles.vim.enable = true;
     my.profiles.virtualisation = {
         docker = {
