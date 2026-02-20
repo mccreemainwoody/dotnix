@@ -27,7 +27,11 @@
 
     users.users.shrek = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "libvirtd" "docker" ];
+        extraGroups = [
+            "wheel"
+            "libvirtd"
+            (lib.mkIf config.my.profiles.virtualisation.docker.enable "docker")
+        ];
     };
 
     hardware.bluetooth = {
@@ -116,13 +120,6 @@
         gamescopeSession.enable = true;
     };
 
-    virtualisation.docker = {
-        enable = true;
-        rootless = {
-            enable = true;
-            setSocketVariable = true;
-        };
-    };
     virtualisation.libvirtd = {
         enable = true;
         qemu = {
@@ -142,8 +139,6 @@
         wl-clipboard
         zip
 
-        docker-buildx
-        docker-compose
         git
 
         dunst
@@ -163,6 +158,10 @@
     my.configurations.sudo.withRagebait = false;
 
     my.profiles.vim.enable = true;
+    my.profiles.virtualisation.docker = {
+        enable = true;
+        rootless = true;
+    };
     my.profiles.nvidia.enable = true;
 
     system.stateVersion = "25.11";
