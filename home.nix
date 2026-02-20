@@ -29,7 +29,6 @@
         brave
         evince
         grim
-        heroic
         pavucontrol
         pcmanfm
         slurp

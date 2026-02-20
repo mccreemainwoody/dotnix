@@ -145,6 +145,7 @@
     my.configurations.sudo.withRagebait = false;
 
     my.profiles.gaming = {
+        heroic.enable = true;
         steam = {
             enable = true;
             withEnhancers = true;
