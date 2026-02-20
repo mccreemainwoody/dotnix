@@ -29,24 +29,9 @@
         isNormalUser = true;
         extraGroups = [
             "wheel"
-            "libvirtd"
+            (lib.mkIf config.my.profiles.virtualisation.qemu.enable "libvirtd")
             (lib.mkIf config.my.profiles.virtualisation.docker.enable "docker")
         ];
-    };
-
-    hardware.bluetooth = {
-        enable = true;
-        powerOnBoot = true;
-        settings = {
-            General = {
-                ControllerMode = "bredr"; # Fix frequent Bluetooth audio dropouts
-                Experimental = true;
-                FastConnectable = true;
-            };
-            Policy = {
-                AutoEnable = true;
-            };
-        };
     };
 
     i18n.defaultLocale = "fr_FR.UTF-8";
@@ -144,6 +129,7 @@
 
     my.configurations.sudo.withRagebait = false;
 
+    my.profiles.bluetooth.enable = true;
     my.profiles.gaming = {
         heroic.enable = true;
         steam = {
