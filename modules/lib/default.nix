@@ -1,3 +1,6 @@
 {
-    imports = [ ./configurations ];
+    imports = [
+        ./configurations
+        ./profiles
+    ];
 }

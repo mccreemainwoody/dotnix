@@ -115,10 +115,6 @@
         xwayland.enable = true;
     };
     programs.hyprlock.enable = true;
-    programs.vim = {
-        enable = true;
-        defaultEditor = true;
-    };
     programs.steam = {
         enable = true;
         gamescopeSession.enable = true;
@@ -169,6 +165,8 @@
     nixpkgs.config.allowUnfree = true;
 
     my.configurations.sudo.withRagebait = false;
+
+    my.profiles.vim.enable = true;
 
     system.stateVersion = "25.11";
 }
