@@ -29,13 +29,16 @@
         hypryaml,
         mediatek-m6639-module,
         ...
-    } @ inputs : {
-        nixosConfigurations = import ./configurations {
-                inherit inputs;
-                modules = [
-                    ./overlays
-                    ./modules
-                ];
-            };
+    } @ inputs :
+    let
+        all_inputs = inputs // {
+            modules = [
+                ./overlays
+                ./modules
+            ];
+        };
+    in
+    {
+        nixosConfigurations = import ./configurations all_inputs;
     };
 }

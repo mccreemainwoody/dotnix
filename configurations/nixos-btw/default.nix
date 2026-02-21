@@ -1,19 +1,18 @@
-{ inputs, modules } :
+{
+    nixpkgs,
+    home-manager,
+    dotfiles,
+    mediatek-m6639-module,
+    modules,
+    ...
+} @ inputs :
 
 let
-    inherit (inputs)
-        nixpkgs
-        home-manager
-        dotfiles
-        mediatek-m6639-module;
     system = "x86_64-linux";
 in
     nixpkgs.lib.nixosSystem {
         system = system;
-        specialArgs = {
-            inherit inputs;
-            inherit system;
-        };
+        specialArgs = { inherit inputs system; };
         modules = modules ++ [
             ./configuration.nix
             home-manager.nixosModules.home-manager {

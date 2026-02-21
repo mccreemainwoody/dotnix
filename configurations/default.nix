@@ -1,4 +1,4 @@
-{ inputs, modules } @ params :
+{ ... } @ params :
 
 {
     nixos-btw = import ./nixos-btw params;
