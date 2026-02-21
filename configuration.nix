@@ -30,14 +30,6 @@
         "en_US.UTF-8/UTF-8"
         "zh_CN.UTF-8/UTF-8"
     ];
-    i18n.inputMethod = {
-        enable = true;
-        type = "fcitx5";
-        fcitx5.addons = with pkgs; [
-            qt6Packages.fcitx5-chinese-addons
-            fcitx5-gtk
-        ];
-    };
 
     fonts.packages = with pkgs; [
         nerd-fonts.jetbrains-mono 
@@ -46,28 +38,6 @@
     ];
 
     services.openssh.enable = true;
-    services.pipewire = {
-        enable = true;
-        pulse.enable = true;
-        alsa = {
-            enable = true;
-            support32Bit = true;
-        };
-    };
-    services.xserver = {
-        enable = true;
-        videoDrivers = [
-            (lib.mkIf config.my.profiles.hardware.nvidia.enable "nvidia")
-        ];
-    };
-
-    programs.hyprland = {
-        enable = true;
-        withUWSM = true;
-        xwayland.enable = true;
-    };
-    programs.hyprlock.enable = true;
-
 
     environment.systemPackages = with pkgs; [
         killall
@@ -76,20 +46,10 @@
         tree
         unzip
         wget
-        wl-clipboard
         zip
 
         git
-
-        dunst
-        kitty
-        rofi
-        wvkbd
     ];
-
-    environment.sessionVariables = {
-        NIXOS_OZONE_WL = "1";
-    };
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     nixpkgs.config.allowUnfree = true;
@@ -108,6 +68,7 @@
         bluetooth.enable = true;
         nvidia.enable = true;
     };
+    my.profiles.graphical.hyprland.enable = true;
     my.profiles.login = {
         greetd.enable = true;
         plymouth = {

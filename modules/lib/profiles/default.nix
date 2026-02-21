@@ -1,6 +1,7 @@
 {
     imports = [
         ./gaming
+        ./graphical
         ./hardware
         ./login
         ./virtualisation

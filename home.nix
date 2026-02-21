@@ -27,12 +27,15 @@
 
         bitwarden-desktop
         brave
+        dunst
         evince
         grim
         pavucontrol
         pcmanfm
+        rofi
         slurp
         spotify
+        wvkbd
     ];
 
     programs.btop.enable = true;
@@ -43,6 +46,7 @@
     };
     programs.fastfetch.enable = true;
     programs.feh.enable = true;
+    programs.hyprlock.enable = true;
     programs.neovim = {
         defaultEditor = true;
         enable = true;
