@@ -30,38 +30,12 @@
         mediatek-m6639-module,
         ...
     } @ inputs : {
-        nixosConfigurations = {
-            nixos-btw = let
-                    system = "x86_64-linux";
-                in
-                    nixpkgs.lib.nixosSystem {
-                        system = system;
-                        specialArgs = {
-                            inherit inputs;
-                            inherit system;
-                        };
-                        modules = [
-                            mediatek-m6639-module.nixosModules.default
-                            ./overlays
-                            ./modules
-                            ./configuration.nix
-                            home-manager.nixosModules.home-manager {
-                                home-manager = {
-                                    useGlobalPkgs = true;
-                                    useUserPackages = true;
-                                    backupFileExtension = "bak";
-                                    users = {
-                                        shrek = {
-                                            imports = [
-                                                ./home.nix
-                                                dotfiles.homeModules.dotfiles
-                                            ];
-                                        };
-                                    };
-                                };
-                            }
-                        ];
-                    };
-        };
+        nixosConfigurations = import ./configurations {
+                inherit inputs;
+                modules = [
+                    ./overlays
+                    ./modules
+                ];
+            };
     };
 }
