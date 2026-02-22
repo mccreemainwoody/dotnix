@@ -1,55 +1,79 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
     imports = [
         ./hardware-configuration.nix
     ];
 
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    boot = {
+        kernelPackages = pkgs.linuxPackages_latest;
 
-    boot.loader.limine.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-
-    networking.hostName = "nixos-btw";
-    networking.networkmanager.enable = true;
-    networking.firewall.enable = true;
-
-    my.configurations.sudo.withRagebait = false;
-
-    my.profiles.core.enable = true;
-    my.profiles.gaming = {
-        heroic.enable = true;
-        steam = {
-            enable = true;
-            withEnhancers = true;
-            withMonitoring = true;
-        };
-    };
-    my.profiles.hardware = {
-        bluetooth.enable = true;
-        nvidia.enable = true;
-    };
-    my.profiles.graphical.hyprland.enable = true;
-    my.profiles.login = {
-        greetd.enable = true;
-        plymouth = {
-            enable = true;
-            theme = "connect";
-        };
-    };
-    my.profiles.vim.enable = true;
-    my.profiles.virtualisation = {
-        docker = {
-            enable = true;
-            rootless = true;
-        };
-        qemu = {
-            enable = true;
-            withVirtManager = true;
+        loader = {
+            limine.enable = true;
+            efi.canTouchEfiVariables = true;
         };
     };
 
-    my.users.shrek.enable = true;
+    networking = {
+        hostName = "nixos-btw";
+        networkmanager.enable = true;
+        firewall.enable = true;
+    };
+
+    my = {
+        configurations.sudo.withRagebait = true;
+
+        users.shrek.enable = true;
+
+        profiles = {
+            core.enable = true;
+
+            gaming = {
+                heroic.enable = true;
+                steam = {
+                    enable = true;
+                    withEnhancers = true;
+                    withMonitoring = true;
+                };
+            };
+
+            graphical.hyprland.enable = true;
+
+            hardware = {
+                bluetooth.enable = true;
+                nvidia.enable = true;
+            };
+
+            login = {
+                greetd = {
+                    enable = true;
+                    initialUser = "shrek";
+                };
+                plymouth = {
+                    enable = true;
+                    theme = "connect";
+                };
+            };
+
+            vim.enable = true;
+
+            virtualisation = {
+                docker = {
+                    enable = true;
+                    rootless = true;
+                };
+                qemu = {
+                    enable = true;
+                    withVirtManager = true;
+                };
+            };
+        };
+    };
+
+    mt6639 = {
+        enable = true;
+        archive = ./mtkbt.dat;
+    };
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     nixpkgs.config.allowUnfree = true;

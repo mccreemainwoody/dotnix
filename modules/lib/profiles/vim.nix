@@ -1,7 +1,7 @@
 { config, lib, ... } @_ :
 
 let
-    cfg = config.my.profiles;
+    cfg = config.my.profiles.vim;
 in
 {
     options = {
@@ -22,9 +22,9 @@ in
         };
     };
 
-    config = {
+    config = lib.mkIf cfg.enable {
         programs.vim = {
-            inherit (cfg.vim)
+            inherit (cfg)
                 enable
                 defaultEditor;
         };

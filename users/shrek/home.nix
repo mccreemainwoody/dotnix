@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... } @_ :
+{ pkgs, ... } @_ :
 
 # TODO: implement conditional implementation if :
 #           - system has config.my.profiles.graphical.wayland enabled

@@ -28,6 +28,12 @@ in
                 '';
                 description = "Set the theme to use on tuigreet.";
             };
+
+            initialUser = lib.mkOption {
+                type = lib.types.str;
+                example = "shrek";
+                description = "Set the user to use for the initial session.";
+            };
         };
     };
 
@@ -38,6 +44,7 @@ in
                 default_session = {
                     command = "${pkgs.tuigreet}/bin/tuigreet ${cfg.theme}";
                 };
+                initial_session.user = cfg.initialUser;
             };
         };
 

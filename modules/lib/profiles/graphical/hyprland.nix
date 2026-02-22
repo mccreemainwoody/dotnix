@@ -2,6 +2,7 @@
 
 let
     cfg = config.my.profiles.graphical.hyprland;
+    cfg_greetd = config.my.profiles.login.greetd;
 in
 {
     options = {
@@ -28,5 +29,9 @@ in
         environment.systemPackages = with pkgs; [
             kitty
         ];
+
+        services.greetd.settings.initial_session.command = lib.mkIf
+            cfg_greetd.enable
+            "${pkgs.hyprland}/bin/start-hyprland";
     };
 }

@@ -21,21 +21,13 @@
         };
     };
 
-    outputs = {
-        self,
-        nixpkgs,
-        home-manager,
-        dotfiles,
-        hypryaml,
-        mediatek-m6639-module,
-        ...
-    } @ inputs :
+    outputs = { self, home-manager, ... } @ inputs :
     let
         all_inputs = inputs // {
             modules = [
                 home-manager.nixosModules.home-manager
-                ./overlays
                 ./modules
+                ./overlays
                 ./users
             ];
         };
