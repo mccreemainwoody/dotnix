@@ -1,7 +1,5 @@
 {
     nixpkgs,
-    home-manager,
-    dotfiles,
     mediatek-m6639-module,
     modules,
     ...
@@ -15,21 +13,6 @@ in
         specialArgs = { inherit inputs system; };
         modules = modules ++ [
             ./configuration.nix
-            home-manager.nixosModules.home-manager {
-                home-manager = {
-                    useGlobalPkgs = true;
-                    useUserPackages = true;
-                    backupFileExtension = "bak";
-                    users = {
-                        shrek = {
-                            imports = [
-                                ./home.nix
-                                    dotfiles.homeModules.dotfiles
-                            ];
-                        };
-                    };
-                };
-            }
             mediatek-m6639-module.nixosModules.default
         ];
     }

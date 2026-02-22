@@ -16,15 +16,6 @@
 
     time.timeZone = "Europe/Paris";
 
-    users.users.shrek = {
-        isNormalUser = true;
-        extraGroups = [
-            "wheel"
-            (lib.mkIf config.my.profiles.virtualisation.qemu.enable "libvirtd")
-            (lib.mkIf config.my.profiles.virtualisation.docker.enable "docker")
-        ];
-    };
-
     i18n.defaultLocale = "fr_FR.UTF-8";
     i18n.extraLocales = [
         "en_US.UTF-8/UTF-8"
@@ -87,6 +78,8 @@
             withVirtManager = true;
         };
     };
+
+    my.users.shrek.enable = true;
 
     system.stateVersion = "25.11";
 }

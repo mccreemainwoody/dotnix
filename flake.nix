@@ -33,8 +33,10 @@
     let
         all_inputs = inputs // {
             modules = [
+                home-manager.nixosModules.home-manager
                 ./overlays
                 ./modules
+                ./users
             ];
         };
     in
