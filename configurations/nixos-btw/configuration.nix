@@ -14,39 +14,9 @@
     networking.networkmanager.enable = true;
     networking.firewall.enable = true;
 
-    time.timeZone = "Europe/Paris";
-
-    i18n.defaultLocale = "fr_FR.UTF-8";
-    i18n.extraLocales = [
-        "en_US.UTF-8/UTF-8"
-        "zh_CN.UTF-8/UTF-8"
-    ];
-
-    fonts.packages = with pkgs; [
-        nerd-fonts.jetbrains-mono 
-        nerd-fonts.noto
-        noto-fonts-cjk-sans
-    ];
-
-    services.openssh.enable = true;
-
-    environment.systemPackages = with pkgs; [
-        killall
-        nvd
-        openssl
-        tree
-        unzip
-        wget
-        zip
-
-        git
-    ];
-
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    nixpkgs.config.allowUnfree = true;
-
     my.configurations.sudo.withRagebait = false;
 
+    my.profiles.core.enable = true;
     my.profiles.gaming = {
         heroic.enable = true;
         steam = {
@@ -80,6 +50,9 @@
     };
 
     my.users.shrek.enable = true;
+
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nixpkgs.config.allowUnfree = true;
 
     system.stateVersion = "25.11";
 }

@@ -5,6 +5,7 @@
         ./hardware
         ./login
         ./virtualisation
+        ./core.nix
         ./vim.nix
     ];
 }
