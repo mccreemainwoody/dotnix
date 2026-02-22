@@ -21,52 +21,18 @@
         };
     };
 
-    outputs = {
-        self,
-        nixpkgs,
-        home-manager,
-        dotfiles,
-        hypryaml,
-        mediatek-m6639-module,
-        ...
-    } @_: {
-        nixosConfigurations = {
-            nixos-btw = let
-                    system = "x86_64-linux";
-                in
-                    nixpkgs.lib.nixosSystem {
-                        system = system;
-                        modules = let
-                            overlays = [
-                                (final: prev:
-                                    {
-                                        hypryaml = hypryaml.packages.${system}.default;
-                                    }
-                                )
-                            ];
-                        in [
-                            mediatek-m6639-module.nixosModules.default
-                            {
-                                nixpkgs.overlays = overlays;
-                            }
-                            ./configuration.nix
-                            home-manager.nixosModules.home-manager {
-                                home-manager = {
-                                    useGlobalPkgs = true;
-                                    useUserPackages = true;
-                                    backupFileExtension = "bak";
-                                    users = {
-                                        shrek = {
-                                            imports = [
-                                                ./home.nix
-                                                dotfiles.homeModules.dotfiles
-                                            ];
-                                        };
-                                    };
-                                };
-                            }
-                        ];
-                    };
+    outputs = { self, home-manager, ... } @ inputs :
+    let
+        all_inputs = inputs // {
+            modules = [
+                home-manager.nixosModules.home-manager
+                ./modules
+                ./overlays
+                ./users
+            ];
         };
+    in
+    {
+        nixosConfigurations = import ./configurations all_inputs;
     };
 }

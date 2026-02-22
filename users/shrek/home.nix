@@ -1,5 +1,8 @@
-{ config, pkgs, ... } @_ :
+{ pkgs, ... } @_ :
 
+# TODO: implement conditional implementation if :
+#           - system has config.my.profiles.graphical.wayland enabled
+#           - system has config.my.profiles.graphical.hyprland enabled
 {
     home.username = "shrek";
     home.homeDirectory = "/home/shrek";
@@ -27,15 +30,15 @@
 
         bitwarden-desktop
         brave
+        dunst
         evince
         grim
-        heroic
-        mangohud
         pavucontrol
         pcmanfm
+        rofi
         slurp
         spotify
-        virt-manager
+        wvkbd
     ];
 
     programs.btop.enable = true;
@@ -46,6 +49,7 @@
     };
     programs.fastfetch.enable = true;
     programs.feh.enable = true;
+    programs.hyprlock.enable = true;
     programs.neovim = {
         defaultEditor = true;
         enable = true;
