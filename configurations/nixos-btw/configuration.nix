@@ -6,7 +6,7 @@
     ];
 
     boot = {
-        kernelPackages = pkgs.linuxPackages_latest;
+        kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
 
         loader = {
             limine.enable = true;
@@ -23,7 +23,10 @@
     my = {
         configurations.sudo.withRagebait = true;
 
-        users.shrek.enable = true;
+        users.shrek = {
+            enable = true;
+            sudoAccess = true;
+        };
 
         profiles = {
             core.enable = true;
