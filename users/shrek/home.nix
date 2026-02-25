@@ -24,6 +24,7 @@
         EDITOR = "nvim";
     };
     home.packages = with pkgs; [
+        hypridle
         hyprpaper
         hypryaml
         rustup
