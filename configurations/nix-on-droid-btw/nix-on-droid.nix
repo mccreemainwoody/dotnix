@@ -1,5 +1,8 @@
-{ config, lib, pkgs, ... } :
+{ config, lib, pkgs, inputs, ... } :
 
+let
+    dotfiles = inputs.dotfiles;
+in
 {
     time.timeZone = "Europe/Paris";
 
@@ -11,6 +14,11 @@
             git
         ];
     };
+
+    home-manager.config.imports = [
+        dotfiles.homeModules.dotfiles
+        ./home.nix
+    ];
 
     nix.extraOptions = ''
         experimental-features = nix-command flakes
