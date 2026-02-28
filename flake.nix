@@ -31,8 +31,10 @@
                 ./users
             ];
         };
+
+        configurations = import ./configurations all_inputs;
     in
     {
-        nixosConfigurations = import ./configurations all_inputs;
+        inherit (configurations) nixosConfigurations;
     };
 }

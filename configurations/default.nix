@@ -1,5 +1,7 @@
 { ... } @ params :
 
 {
-    nixos-btw = import ./nixos-btw params;
+    nixosConfigurations = {
+        nixos-btw = import ./nixos-btw params;
+    };
 }
