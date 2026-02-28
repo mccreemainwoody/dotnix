@@ -7,6 +7,11 @@
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        nix-on-droid = {
+            url = "github:nix-community/nix-on-droid";
+            inputs.nixpkgs.follows = "nixpkgs";
+            inputs.home-manager.follows = "home-manager";
+        };
         dotfiles = {
             url = "github:mccreemainwoody/dotfiles";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -35,6 +40,8 @@
         configurations = import ./configurations all_inputs;
     in
     {
-        inherit (configurations) nixosConfigurations;
+        inherit (configurations)
+            nixosConfigurations
+            nixOnDroidConfigurations;
     };
 }
