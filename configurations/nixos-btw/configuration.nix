@@ -73,6 +73,8 @@
         };
     };
 
+    programs.nix-ld.enable = true;
+
     mt6639 = {
         enable = true;
         archive = ./mtkbt.dat;
