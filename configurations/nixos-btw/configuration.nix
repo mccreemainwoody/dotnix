@@ -6,7 +6,7 @@
     ];
 
     boot = {
-        kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
+        kernelPackages = pkgs.linuxKernel.packages.linux_6_19;
 
         loader = {
             limine.enable = true;
