@@ -44,6 +44,7 @@
 
             hardware = {
                 bluetooth.enable = true;
+                cuda.enable = true;
                 nvidia.enable = true;
             };
 
