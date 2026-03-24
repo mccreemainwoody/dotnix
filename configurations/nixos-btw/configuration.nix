@@ -59,6 +59,8 @@
                 };
             };
 
+            toolchain.enable = true;
+
             vim.enable = true;
 
             virtualisation = {

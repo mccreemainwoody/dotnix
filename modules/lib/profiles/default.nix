@@ -6,6 +6,7 @@
         ./login
         ./virtualisation
         ./core.nix
+        ./toolchain.nix
         ./vim.nix
     ];
 }
